@@ -1,13 +1,9 @@
 import { MysqlConnectionOptions } from "typeorm/driver/mysql/MysqlConnectionOptions"
-import { SqliteConnectionOptions } from "typeorm/driver/sqlite/SqliteConnectionOptions"
+import {DBConfig} from "./configuration"
 
 const config: MysqlConnectionOptions={
     type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'admin',
-    password: 'P@ssword',    
-    database: 'nest-api-db',
+    ...DBConfig,
     entities: ['dist/src/**/*.entity.js'],
     synchronize: false,
     migrations: [
