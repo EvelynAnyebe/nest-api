@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { UserOrm } from './user-orm.entity';
 
 @Injectable()
 export class UsersOrmService {
-    constructor(@InjectRepository(UserOrm) private usersRepository: Repository<UserOrm>){
+    constructor(@InjectRepository(UserOrm) private usersRepository: Repository<UserOrm>, private connection: Connection){
 
     }
 
@@ -39,6 +39,5 @@ export class UsersOrmService {
         const user = await this.usersRepository.findOneOrFail(id);
        
         return this.usersRepository.remove(user);
-
     }
 }

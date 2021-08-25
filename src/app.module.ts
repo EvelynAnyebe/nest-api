@@ -7,13 +7,13 @@ import { TodosModule } from './todos/todos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersOrmModule } from './users-orm/users-orm.module';
 import { PetModule } from './pet/pet.module';
-import config from './config/ormconfig';
+import {configAsync} from './config/ormconfig';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true, }),
     UsersModule,
     TodosModule,
-    TypeOrmModule.forRoot(config),
+    TypeOrmModule.forRootAsync(configAsync),
     UsersOrmModule,
     PetModule,
   ],

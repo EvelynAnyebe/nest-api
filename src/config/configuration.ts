@@ -1,10 +1,9 @@
-
  export const DBConfig = {
     host: process.env.DATABASE_HOST,
-    port: parseInt(process.env.DATABAE_PORT) || 3306,
-    username: process.env.DATABAE_USERNAME,
+    port: parseInt(process.env.DATABASE_PORT) || 3306,
+    username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABAE_NAME
+    database: process.env.DATABASE_NAME
   };
 
 
