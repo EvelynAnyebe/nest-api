@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -13,7 +15,7 @@ import {configAsync} from './config/ormconfig';
     ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true, }),
     UsersModule,
     TodosModule,
-    TypeOrmModule.forRootAsync(configAsync),
+    TypeOrmModule.forRoot(configAsync),
     UsersOrmModule,
     PetModule,
   ],
